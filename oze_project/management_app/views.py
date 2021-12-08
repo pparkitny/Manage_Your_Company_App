@@ -35,7 +35,14 @@ class LoginView(View):
         if user:  # user is in database
             message = f'Witaj {user}'
             login(request, user)  # from django.contrib.auth import login
-            return render(request, 'login.html', {'form': form, 'message': message})
+            return render(request, 'logged.html', {'form': form, 'message': message})
         else:  # user is None
             message = 'Błędny login lub hasło'
             return render(request, 'login.html', {'form': form, 'message': message})
+
+
+class LogoutView(View):
+    """ This class redirect logout user to main site"""
+    def get(self, request):
+        logout(request)  # from django.contrib.auth import logout
+        return redirect('/')

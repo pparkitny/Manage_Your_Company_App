@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="center">
+    {% if user.is_authenticated %}
+        Witaj {{ user }}. </p> <a href="/logout/">Wyloguj</a>
+    {% endif %}
+</div>
+{% endblock %}
