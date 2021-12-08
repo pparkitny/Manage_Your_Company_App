@@ -16,8 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from management_app.views import MainSite
+from management_app.views import MainSite, LoginView
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', MainSite.as_view())
+    path('', MainSite.as_view()),
+    path('login/', LoginView.as_view())
 ]
