@@ -1,9 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import View
-from .forms import LoginForm
+from .forms import LoginForm, RegisterForm
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
 
 
 class MainSite(View):
@@ -46,3 +47,24 @@ class LogoutView(View):
     def get(self, request):
         logout(request)  # from django.contrib.auth import logout
         return redirect('/')
+
+
+class RegisterView(View):
+    """ This class is used for new user register """
+    def get(self, request):
+        form = RegisterForm()
+        return render(request, 'add_user.html', {'form': form})
+
+    def post(self, request):
+        form = RegisterForm(request.POST)
+
+        if form.is_valid():
+            user = User.objects.create_user(username=form.cleaned_data['login'],
+                                            password=form.cleaned_data['password1'],
+                                            first_name=form.cleaned_data['first_name'],
+                                            last_name=form.cleaned_data['last_name'],
+                                            email=form.cleaned_data['email'])
+            user.save()
+            return redirect('/login/')
+        else:
+            return render(request, 'add_user.html', {'form': form})
