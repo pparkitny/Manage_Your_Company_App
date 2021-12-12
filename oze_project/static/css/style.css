@@ -34,6 +34,25 @@ a:link {
     color: white;
 }
 
+.logout {
+    display: inline-block;
+    float: left;
+    padding: 30px;
+    width: 16%;
+    background-color: gray;
+    text-align: center;
+    color: black;
+    margin-left: 12px;
+    margin-top: 10px;
+    font-size: 20px;
+    margin-bottom: 50px;
+}
+
+.logout:hover {
+    background-color: red;
+    color: white;
+}
+
 .dashboard {
     font-size: 30px;
     width: 50%;
