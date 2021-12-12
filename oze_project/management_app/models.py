@@ -56,6 +56,7 @@ class Investment(models.Model):
 class SquadInvestment(models.Model):
     investment = models.ForeignKey(Investment, on_delete=models.CASCADE)
     squad = models.ForeignKey(Squad, on_delete=models.CASCADE)
+    employee = models.ForeignKey(Employee, on_delete=models.CASCADE, null=True)
 
     @property
     def squad_and_investment(self):
@@ -63,6 +64,7 @@ class SquadInvestment(models.Model):
 
     def __str__(self):
         return self.squad_and_investment
+
 
 class DayName(models.Model):
     name = models.TextField(null=False, unique=True)
