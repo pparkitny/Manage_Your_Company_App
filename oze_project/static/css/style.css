@@ -6,11 +6,46 @@
 }
 
 a:link {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 #back-link {
     position: absolute;
     bottom: 15px;
     right: 15px;
+}
+
+.navi {
+    display: inline-block;
+    float: left;
+    padding: 30px;
+    width: 16%;
+    background-color: gray;
+    text-align: center;
+    color: black;
+    margin-left: 12px;
+    margin-top: 10px;
+    font-size: 20px;
+    margin-bottom: 50px;
+}
+
+.navi:hover {
+    background-color: black;
+    color: white;
+}
+
+.dashboard {
+    font-size: 30px;
+    width: 50%;
+    text-align: center;
+    width: 50%;
+    margin: auto;
+}
+
+.title {
+    font-size: 30px;
+    width: 50%;
+    text-align: center;
+    width: 50%;
+    margin: auto;
 }

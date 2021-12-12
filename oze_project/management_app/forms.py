@@ -14,19 +14,12 @@ def login_not_taken(login):
 
 
 class RegisterForm(forms.Form):
-    # def __init__(self, *args, **kwargs):
-    #     super(RegisterForm, self).__init__(*args, **kwargs)
-    #     self.fields['login'].widget.attrs.update({
-    #         'autocomplete': 'off'
-    #     })
-
     first_name = forms.CharField(label='Imię')
     last_name = forms.CharField(label='Nazwisko')
     login = forms.CharField(label='Login', validators=[login_not_taken])
     password1 = forms.CharField(label='Hasło', widget=forms.PasswordInput())
     password2 = forms.CharField(label='Powtórz hasło', widget=forms.PasswordInput())
     email = forms.CharField(label='Email')
-
 
     def clean(self):
         cleaned_data = super().clean()

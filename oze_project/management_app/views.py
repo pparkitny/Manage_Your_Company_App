@@ -85,3 +85,39 @@ class DashboardView(LoginRequiredMixin, View): # from django.contrib.auth.mixins
 
     def post(self, request):
         return render(request, 'dashboard.html')
+
+
+class AddEmployee(LoginRequiredMixin, View):
+    """ In this class you can add new employee """
+
+    login_url = '/login/'
+
+    def get(self, request):
+        return render(request, 'add_employee.html')
+
+    def post(self, request):
+        return render(request, 'add_employee.html')
+
+
+class AddSquad(LoginRequiredMixin, View):
+    """ In this class you can add new squad """
+
+    login_url = '/login/'
+
+    def get(self, request):
+        return render(request, 'add_squad.html')
+
+    def post(self, request):
+        return render(request, 'add_squad.html')
+
+
+class AddInvestment(LoginRequiredMixin, View):
+    """ In this class you can add new investment """
+
+    login_url = '/login/'
+
+    def get(self, request):
+        return render(request, 'add_investment.html')
+
+    def post(self, request):
+        return render(request, 'add_investment.html')

@@ -9,7 +9,27 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
+{% if user.is_authenticated %}
+<nav>
+    <a href="/add-employee/">
+        <div class="navi">Nowy pracownik</div>
+    </a>
+    <a href="/add-squad/">
+        <div class="navi">Nowa brygada</div>
+    </a>
+    <a href="/add-investment/">
+        <div class="navi">Nowa inwestycja</div>
+    </a>
+    <a href="/dashboard/">
+        <div class="navi">Kalendarz</div>
+    </a>
+    <a href="/logout/">
+        <div class="navi">Wyloguj</div>
+    </a>
+</nav>
+{% endif %}
+{% block content %}
+{% endblock %}
 <a href="#" onclick="history.go(-1)" id="back-link">Wróć</a>
-    {% block content %}{% endblock %}
 </body>
 </html>

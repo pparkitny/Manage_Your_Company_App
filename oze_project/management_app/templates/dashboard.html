@@ -1,8 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="center">
-    {% if user.is_authenticated %}
-        Witaj {{ user }}. </p> <a href="/logout/">Wyloguj</a>
-    {% endif %}
+<div class="dashboard">
+    <p>
+        Witaj na pulpicie głównym aplikacji!</br> </br>
+        Tutaj możesz:
+    </p>
+    <p style="text-align: left">
+
+            - Stworzyć nowego użytkownika</br>
+            - Stworzyć nowa brygadę</br>
+            - Stworzyć nową inwestycję</br>
+            - Zarządzać kalendarzem</br>
+            - Wylogować się</br>
+    </p>
 </div>
 {% endblock %}
