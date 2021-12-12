@@ -6,6 +6,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib.auth.mixins import LoginRequiredMixin
+from .models import Employee, SquadInvestment
 
 
 class MainSite(View):
@@ -121,3 +122,30 @@ class AddInvestment(LoginRequiredMixin, View):
 
     def post(self, request):
         return render(request, 'add_investment.html')
+
+
+class Employees(LoginRequiredMixin, View):
+    """ In this class you can see list of employees """
+
+    login_url = '/login/'
+
+    def get(self, request):
+        workers = Employee.objects.all()
+        return render(request, 'employees.html', {'workers': workers})
+
+    def post(self, request):
+        return render(request, 'employees.html')
+
+
+class Investments(LoginRequiredMixin, View):
+    """ In this class you can see list of investments """
+
+    login_url = '/login/'
+
+    def get(self, request):
+        investments = SquadInvestment.objects.all()
+        return render(request, 'investments.html', {'investments': investments})
+
+    def post(self, request):
+        return render(request, 'investments.html')
+

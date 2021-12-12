@@ -16,8 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from management_app.views import MainSite, LoginView, LogoutView,\
-    RegisterView, DashboardView, AddEmployee, AddSquad, AddInvestment
+from management_app.views import MainSite, LoginView, LogoutView, RegisterView, \
+    DashboardView, AddEmployee, AddSquad, AddInvestment,\
+    Employees, Investments
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', MainSite.as_view()),
@@ -27,5 +28,7 @@ urlpatterns = [
     path('dashboard/', DashboardView.as_view()),
     path('add-employee/', AddEmployee.as_view()),
     path('add-squad/', AddSquad.as_view()),
-    path('add-investment/', AddInvestment.as_view())
+    path('add-investment/', AddInvestment.as_view()),
+    path('employees/', Employees.as_view()),
+    path('investments/', Investments.as_view())
 ]

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="title">
+    <p>
+        Lista inwestycji
+    </p>
+</div>
+<div class="center">
+    <table class="table">
+        <thead>
+            <tr class="d-flex">
+                <th class="col-2">ID</th>
+                <th class="col-2">Ulica</th>
+                <th class="col-2">Miasto</th>
+                <th class="col-2">Kod pocztowy</th>
+                <th class="col-8">Brygada</th>
+                <th class="col-2"></th>
+            </tr>
+        </thead>
+    {% for investment in investments %}
+        <tbody>
+            <tr class="d-flex">
+                <td class="col-2">{{ investment.id }}</td>
+                <td class="col-2">{{ investment.investment.street_name}}</td>
+                <td class="col-2">{{ investment.investment.city_name}}</td>
+                <td class="col-2">{{ investment.investment.zip_code}}</td>
+                <td class="col-8">{{ investment.squad }}</td>
+                <td class="col-2">
+                    <a href ='/investment/{{ investment.id }}/' >
+                        <button type="button" class="btn btn-primary rounded-0">
+                            Szczegóły
+                        </button>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    {% endfor %}
+    </table>
+</div>
+{% endblock %}
