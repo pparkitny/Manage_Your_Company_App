@@ -7,26 +7,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script>
+        /* When the user clicks on the button,
+        toggle between hiding and showing the dropdown content */
+        function myFunction() {
+          document.getElementById("myDropdown").classList.toggle("show");
+        }
+        // Close the dropdown menu if the user clicks outside of it
+        window.onclick = function(event) {
+          if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+              var openDropdown = dropdowns[i];
+              if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+              }
+            }
+          }
+        }
+    </script>
 </head>
 <body>
 {% if user.is_authenticated %}
-<nav>
-    <a href="/add-employee/">
-        <div class="navi">Nowy pracownik</div>
-    </a>
-    <a href="/add-squad/">
-        <div class="navi">Nowa brygada</div>
-    </a>
-    <a href="/add-investment/">
-        <div class="navi">Nowa inwestycja</div>
-    </a>
+<div class="navi">
     <a href="/dashboard/">
-        <div class="navi">Kalendarz</div>
+    <div class="dropbtn">Pulpit</div>
+    </a>
+    <div class="dropdown">
+        <button onclick="myFunction()" class="dropbtn">Dodaj</button>
+          <div id="myDropdown" class="dropdown-content">
+            <a href="/add-employee/">Nowy pracownik</a>
+            <a href="/add-squad/">Nowa brygada</a>
+            <a href="/add-investment/">Nowa inwestycja</a>
+          </div>
+    </div>
+    <a href="/dashboard/">
+        <div class="dropbtn">Kalendarz</div>
     </a>
     <a href="/logout/">
-        <div class="logout">Wyloguj</div>
+        <div class="dropbtn">Wyloguj</div>
     </a>
-</nav>
+</div>
 {% endif %}
 {% block content %}
 {% endblock %}
