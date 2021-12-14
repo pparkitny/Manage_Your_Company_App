@@ -174,3 +174,16 @@ class Investments(LoginRequiredMixin, View):
     def post(self, request):
         return render(request, 'investments.html')
 
+
+class Squads(LoginRequiredMixin, View):
+    """ In this class you can see list of investments """
+
+    login_url = '/login/'
+
+    def get(self, request):
+        squads = Squad.objects.all()
+        return render(request, 'squads.html', {'squads': squads})
+
+    def post(self, request):
+        return render(request, 'squads.html')
+

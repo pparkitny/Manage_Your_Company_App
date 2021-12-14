@@ -84,3 +84,17 @@ a:link {
     width: 50%;
     margin: auto;
 }
+
+
+table {
+    width: 100%;
+    border: 1px solid black;
+}
+
+th {
+  height: 70px;
+}
+
+td {
+    height: 40px;
+}

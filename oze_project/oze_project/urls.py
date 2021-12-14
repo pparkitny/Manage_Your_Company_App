@@ -18,7 +18,7 @@ from django.urls import path
 
 from management_app.views import MainSite, LoginView, LogoutView, RegisterView, \
     DashboardView, AddEmployee, AddSquad, AddInvestment,\
-    Employees, Investments
+    Employees, Investments, Squads
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', MainSite.as_view()),
@@ -30,5 +30,6 @@ urlpatterns = [
     path('add-squad/', AddSquad.as_view()),
     path('add-investment/', AddInvestment.as_view()),
     path('employees/', Employees.as_view()),
-    path('investments/', Investments.as_view())
+    path('investments/', Investments.as_view()),
+    path('squads/', Squads.as_view())
 ]
