@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.core.validators import URLValidator, validate_email, ValidationError
+from .models import Squad, POSITION
 
 
 class LoginForm(forms.Form):
@@ -26,3 +27,11 @@ class RegisterForm(forms.Form):
         if cleaned_data['password1'] != cleaned_data['password2']:
             raise ValidateError('Hasła nie są takie same')
         return cleaned_data
+
+
+class EmployeeAddForm(forms.Form):
+    first_name = forms.CharField(label='Imię')
+    last_name = forms.CharField(label='Naziwsko')
+    position = forms.ChoiceField(label='Stanowisko', choices=POSITION)
+    squad = forms.ModelChoiceField(label='Brygada', queryset=Squad.objects.all(), required=False)
+

@@ -1,12 +1,12 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import View
-from .forms import LoginForm, RegisterForm
+from .forms import LoginForm, RegisterForm, EmployeeAddForm
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import Employee, SquadInvestment
+from .models import Employee, SquadInvestment, POSITION
 
 
 class MainSite(View):
@@ -94,10 +94,26 @@ class AddEmployee(LoginRequiredMixin, View):
     login_url = '/login/'
 
     def get(self, request):
-        return render(request, 'add_employee.html')
+        form = EmployeeAddForm()
+        return render(request, 'add_employee.html', {'form': form})
 
     def post(self, request):
-        return render(request, 'add_employee.html')
+        form = EmployeeAddForm(request.POST)
+        if form.is_valid():
+            first_name = form.cleaned_data['first_name']
+            last_name = form.cleaned_data['last_name']
+            position = form.cleaned_data['position']
+            squad = form.cleaned_data['squad']
+            # Create new employee
+            employee = Employee.objects.create(
+                first_name=first_name,
+                last_name=last_name,
+                position=position,
+                squad=squad
+            )
+            return redirect(f'/employees/')
+        else:
+            return render(request, 'add_employee.html', {'form': form})
 
 
 class AddSquad(LoginRequiredMixin, View):
@@ -131,7 +147,8 @@ class Employees(LoginRequiredMixin, View):
 
     def get(self, request):
         workers = Employee.objects.all()
-        return render(request, 'employees.html', {'workers': workers})
+        positions = POSITION
+        return render(request, 'employees.html', {'workers': workers, 'positions': positions})
 
     def post(self, request):
         return render(request, 'employees.html')

@@ -11,8 +11,10 @@
             <tr class="d-flex">
                 <th class="col-2">ID</th>
                 <th class="col-2">Pracownik</th>
+                <th class="col-2">Stanowisko</th>
                 <th class="col-8">Brygada</th>
-                <th class="col-2"></th>
+                <th class="col-2">Edytuj</th>
+                <th class="col-2">Szczegóły</th>
             </tr>
         </thead>
     {% for worker in workers %}
@@ -20,7 +22,31 @@
             <tr class="d-flex">
                 <td class="col-2">{{ worker.id }}</td>
                 <td class="col-2">{{ worker.first_name }} {{ worker.last_name }}</td>
-                <td class="col-8">{{ worker.squad }}</td>
+                <td class="col-2">
+                    {% if worker.position == 1 %}
+                        {{ positions.0.1 }}
+                    {% elif worker.position == 2 %}
+                        {{ positions.1.1 }}
+                    {% elif worker.position == 3 %}
+                        {{ positions.2.1 }}
+                    {% elif worker.position == 4 %}
+                        {{ positions.3.1 }}
+                    {% endif %}
+                </td>
+                <td class="col-8">
+                {% if worker.squad == None %}
+                    -
+                {% elif worker.squad != None %}
+                    {{ worker.squad }}
+                {% endif %}
+                </td>
+                <td class="col-2">
+                    <a href ='/employee/modify/{{ worker.id }}/' >
+                        <button type="button" class="btn btn-primary rounded-0">
+                            Edytuj
+                        </button>
+                    </a>
+                </td>
                 <td class="col-2">
                     <a href ='/employee/{{ worker.id }}/' >
                         <button type="button" class="btn btn-primary rounded-0">

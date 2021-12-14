@@ -26,7 +26,7 @@ class Employee(models.Model):
     first_name = models.CharField(max_length=64)
     last_name = models.CharField(max_length=64)
     position = models.IntegerField(choices=POSITION)
-    squad = models.ForeignKey(Squad, on_delete=models.CASCADE)
+    squad = models.ForeignKey(Squad, on_delete=models.CASCADE, null=True)
 
     @property
     def name(self):
