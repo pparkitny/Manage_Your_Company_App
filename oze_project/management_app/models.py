@@ -16,7 +16,7 @@ TYPES_OF_INVESTMENT = (
 
 
 class Squad(models.Model):
-    name = models.CharField(max_length=64)
+    name = models.CharField(max_length=64, default="BRAK")
 
     def __str__(self):
         return self.name
@@ -26,7 +26,7 @@ class Employee(models.Model):
     first_name = models.CharField(max_length=64)
     last_name = models.CharField(max_length=64)
     position = models.IntegerField(choices=POSITION)
-    squad = models.ForeignKey(Squad, on_delete=models.CASCADE, null=True)
+    squad = models.ForeignKey(Squad, on_delete=models.CASCADE)
 
     @property
     def name(self):

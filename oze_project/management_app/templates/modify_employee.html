@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="title">
+    <p>
+        Edycja pracownika
+    </p>
+</div>
+<div class="center">
+    <table class="table">
+        <thead>
+            <tr class="d-flex">
+                <th class="col-2">Imię</th>
+                <th class="col-2">Nazwisko</th>
+                <th class="col-2">Stanowisko</th>
+                <th class="col-2">Brygada</th>
+                <th class="col-2">Edytuj</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="d-flex">
+                <td class="col-2">
+                    <input type="text" name="first_name" value="{{ employee.first_name }}">
+                </td>
+                <td class="col-2">
+                    <input type="text" name="last_name" value="{{ employee.last_name }}">
+                </td>
+                <td class="col-2">
+                    <select class="form-control" name="position">
+                        {% for position in positions %}
+                        {% if position.0 == employee.position %}
+                        <option selected>{{ position.1 }}</option>
+                        {% elif position.0 != employee.position %}
+                        <option>{{ position.1 }}</option>
+                        {% endif %}
+                        {% endfor %}
+                    </select>
+                </td>
+                <td class="col-2">
+                    <select class="form-control" name="squad">
+                        {% for squad in squads %}
+                        {% if squad.name == employee.squad.name %}
+                        <option selected>{{ squad.name }}</option>
+                        {% elif squad.name != employee.squad %}
+                        <option>{{ squad.name }}</option>
+                        {% endif %}
+                        {% endfor %}
+                    </select>
+                </td>
+                <td class="col-2">
+                    <a href ='/employees/' >
+                        <button type="button" class="btn btn-primary rounded-0">
+                            Edytuj
+                        </button>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+{% endblock %}

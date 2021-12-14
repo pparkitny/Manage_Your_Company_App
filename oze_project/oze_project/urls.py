@@ -18,7 +18,7 @@ from django.urls import path
 
 from management_app.views import MainSiteView, LoginView, LogoutView, RegisterView, \
     DashboardView, AddEmployeeView, AddSquadView, AddInvestmentView,\
-    EmployeesView, InvestmentsView, SquadsView, CalendarView
+    EmployeesView, InvestmentsView, SquadsView, CalendarView, ModifyEmployeeView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', MainSiteView.as_view()),
@@ -32,5 +32,6 @@ urlpatterns = [
     path('employees/', EmployeesView.as_view()),
     path('investments/', InvestmentsView.as_view()),
     path('squads/', SquadsView.as_view()),
-    path('calendar/', CalendarView.as_view())
+    path('calendar/', CalendarView.as_view()),
+    path('employee/modify/<id>/', ModifyEmployeeView.as_view())
 ]

@@ -221,3 +221,37 @@ class CalendarView(LoginRequiredMixin, View):
 
     def post(self, request):
         return render(request, 'calendar.html')
+
+
+class ModifyEmployeeView(LoginRequiredMixin, View):
+    """ In this class you can add new employee """
+
+    login_url = '/login/'
+
+    def get(self, request, id):
+        positions = POSITION
+        squads = Squad.objects.all()
+        try:
+            employee = Employee.objects.get(id=id)
+        except Exception:
+            raise Http404("Nie znaleziono pracownika")
+        return render(request, 'modify_employee.html', {'employee': employee,
+                                                        'positions': positions,
+                                                        'squads': squads})
+
+    def post(self, request, id):
+        first_name = request.POST.get['first_name']
+        last_name = request.POST.get['last_name']
+        position = request.POST.get['position']
+        squad = request.POST.get['squad']
+        # Create new employee
+        try:
+            Employee.objects.filter(id=id).update(
+                first_name=first_name,
+                last_name=last_name,
+                position=position,
+                squad=squad
+            )
+            return redirect(f'/employees/')
+        except Exception:
+            return render(request, 'modify_employee.html', {'error_text': "Wypełnij poprawnie wszystkie pola"})

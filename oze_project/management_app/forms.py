@@ -33,7 +33,7 @@ class EmployeeAddForm(forms.Form):
     first_name = forms.CharField(label='Imię')
     last_name = forms.CharField(label='Naziwsko')
     position = forms.ChoiceField(label='Stanowisko', choices=POSITION)
-    squad = forms.ModelChoiceField(label='Brygada', queryset=Squad.objects.all(), required=False)
+    squad = forms.ModelChoiceField(label='Brygada', queryset=Squad.objects.all())
 
 
 def squad_name_not_taken(name):
