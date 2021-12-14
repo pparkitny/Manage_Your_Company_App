@@ -1,12 +1,12 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import View
-from .forms import LoginForm, RegisterForm, EmployeeAddForm
+from .forms import LoginForm, RegisterForm, EmployeeAddForm, SquadAddForm
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import Employee, SquadInvestment, POSITION
+from .models import Employee, SquadInvestment, POSITION, Squad
 
 
 class MainSite(View):
@@ -105,7 +105,7 @@ class AddEmployee(LoginRequiredMixin, View):
             position = form.cleaned_data['position']
             squad = form.cleaned_data['squad']
             # Create new employee
-            employee = Employee.objects.create(
+            Employee.objects.create(
                 first_name=first_name,
                 last_name=last_name,
                 position=position,
@@ -122,10 +122,18 @@ class AddSquad(LoginRequiredMixin, View):
     login_url = '/login/'
 
     def get(self, request):
-        return render(request, 'add_squad.html')
+        form = SquadAddForm()
+        return render(request, 'add_squad.html', {'form': form})
 
     def post(self, request):
-        return render(request, 'add_squad.html')
+        form = SquadAddForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            # Create new squad
+            Squad.objects.create(name=name)
+            return redirect(f'/add-squad/')
+        else:
+            return render(request, 'add_squad.html', {'form': form})
 
 
 class AddInvestment(LoginRequiredMixin, View):

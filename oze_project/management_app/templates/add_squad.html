@@ -5,4 +5,12 @@
         Utwórz nową brygadę
     </p>
 </div>
+<div class="center">
+        <form method="post" class="center">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Utwórz">
+        </form>
+    <h1>{{ message }}</h1>
+</div>
 {% endblock %}

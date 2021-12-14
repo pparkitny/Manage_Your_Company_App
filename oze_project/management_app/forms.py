@@ -35,3 +35,12 @@ class EmployeeAddForm(forms.Form):
     position = forms.ChoiceField(label='Stanowisko', choices=POSITION)
     squad = forms.ModelChoiceField(label='Brygada', queryset=Squad.objects.all(), required=False)
 
+
+def squad_name_not_taken(name):
+    if Squad.objects.filter(name=name):
+        raise ValidationError('Podana nazwa jest już zajęta.')
+
+
+class SquadAddForm(forms.Form):
+    name = forms.CharField(label='Nazwa brygady', validators=[squad_name_not_taken])
+
