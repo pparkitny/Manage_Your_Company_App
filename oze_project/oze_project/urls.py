@@ -16,20 +16,21 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from management_app.views import MainSite, LoginView, LogoutView, RegisterView, \
-    DashboardView, AddEmployee, AddSquad, AddInvestment,\
-    Employees, Investments, Squads
+from management_app.views import MainSiteView, LoginView, LogoutView, RegisterView, \
+    DashboardView, AddEmployeeView, AddSquadView, AddInvestmentView,\
+    EmployeesView, InvestmentsView, SquadsView, CalendarView
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', MainSite.as_view()),
+    path('', MainSiteView.as_view()),
     path('login/', LoginView.as_view()),
     path('logout/', LogoutView.as_view()),
     path('register/', RegisterView.as_view()),
     path('dashboard/', DashboardView.as_view()),
-    path('add-employee/', AddEmployee.as_view()),
-    path('add-squad/', AddSquad.as_view()),
-    path('add-investment/', AddInvestment.as_view()),
-    path('employees/', Employees.as_view()),
-    path('investments/', Investments.as_view()),
-    path('squads/', Squads.as_view())
+    path('add-employee/', AddEmployeeView.as_view()),
+    path('add-squad/', AddSquadView.as_view()),
+    path('add-investment/', AddInvestmentView.as_view()),
+    path('employees/', EmployeesView.as_view()),
+    path('investments/', InvestmentsView.as_view()),
+    path('squads/', SquadsView.as_view()),
+    path('calendar/', CalendarView.as_view())
 ]

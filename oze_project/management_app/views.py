@@ -9,7 +9,7 @@ from .models import Employee, SquadInvestment, POSITION, Squad, Investment
 from .forms import LoginForm, RegisterForm, EmployeeAddForm, SquadAddForm, InvestmentAddForm
 
 
-class MainSite(View):
+class MainSiteView(View):
     """ This class is represent main site of whole app """
     """ You can choose between 'Login' and 'Register' buttons """
     def get(self, request):
@@ -88,7 +88,7 @@ class DashboardView(LoginRequiredMixin, View): # from django.contrib.auth.mixins
         return render(request, 'dashboard.html')
 
 
-class AddEmployee(LoginRequiredMixin, View):
+class AddEmployeeView(LoginRequiredMixin, View):
     """ In this class you can add new employee """
 
     login_url = '/login/'
@@ -116,7 +116,7 @@ class AddEmployee(LoginRequiredMixin, View):
             return render(request, 'add_employee.html', {'form': form})
 
 
-class AddSquad(LoginRequiredMixin, View):
+class AddSquadView(LoginRequiredMixin, View):
     """ In this class you can add new squad """
 
     login_url = '/login/'
@@ -136,7 +136,7 @@ class AddSquad(LoginRequiredMixin, View):
             return render(request, 'add_squad.html', {'form': form})
 
 
-class AddInvestment(LoginRequiredMixin, View):
+class AddInvestmentView(LoginRequiredMixin, View):
     """ In this class you can add new investment """
 
     login_url = '/login/'
@@ -171,7 +171,7 @@ class AddInvestment(LoginRequiredMixin, View):
             return render(request, 'add_investment.html', {'form': form})
 
 
-class Employees(LoginRequiredMixin, View):
+class EmployeesView(LoginRequiredMixin, View):
     """ In this class you can see list of employees """
 
     login_url = '/login/'
@@ -185,7 +185,7 @@ class Employees(LoginRequiredMixin, View):
         return render(request, 'employees.html')
 
 
-class Investments(LoginRequiredMixin, View):
+class InvestmentsView(LoginRequiredMixin, View):
     """ In this class you can see list of investments """
 
     login_url = '/login/'
@@ -198,7 +198,7 @@ class Investments(LoginRequiredMixin, View):
         return render(request, 'investments.html')
 
 
-class Squads(LoginRequiredMixin, View):
+class SquadsView(LoginRequiredMixin, View):
     """ In this class you can see list of investments """
 
     login_url = '/login/'
@@ -209,3 +209,15 @@ class Squads(LoginRequiredMixin, View):
 
     def post(self, request):
         return render(request, 'squads.html')
+
+
+class CalendarView(LoginRequiredMixin, View):
+    """ In this class you can see calendar """
+
+    login_url = '/login/'
+
+    def get(self, request):
+        return render(request, 'calendar.html')
+
+    def post(self, request):
+        return render(request, 'calendar.html')
