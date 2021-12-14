@@ -2,7 +2,7 @@
 {% block content %}
 <div class="title">
     <p>
-        Lista inwestycji
+        Lista brygad
     </p>
 </div>
 <div class="center">
@@ -10,6 +10,7 @@
         <thead>
             <tr class="d-flex">
                 <th class="col-2">Nazwa</th>
+                <th class="col-2">Edytuj</th>
                 <th class="col-2">Szczegóły</th>
             </tr>
         </thead>
@@ -18,7 +19,14 @@
             <tr class="d-flex">
                 <td class="col-2">{{ squad.name }}</td>
                 <td class="col-2">
-                    <a href ='/investment/{{ investment.id }}/' >
+                    <a href ='/squad/modify/{{ squad.id }}/' >
+                        <button type="button" class="btn btn-primary rounded-0">
+                            Edytuj
+                        </button>
+                    </a>
+                </td>
+                <td class="col-2">
+                    <a href ='/squad/{{ squad.id }}/' >
                         <button type="button" class="btn btn-primary rounded-0">
                             Szczegóły
                         </button>

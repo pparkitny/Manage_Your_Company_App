@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.core.validators import URLValidator, validate_email, ValidationError
-from .models import Squad, POSITION
+from .models import Squad, POSITION, Investment, TYPES_OF_INVESTMENT, SquadInvestment
 
 
 class LoginForm(forms.Form):
@@ -44,3 +44,11 @@ def squad_name_not_taken(name):
 class SquadAddForm(forms.Form):
     name = forms.CharField(label='Nazwa brygady', validators=[squad_name_not_taken])
 
+
+class InvestmentAddForm(forms.Form):
+    first_name = forms.CharField(label='Imię inwestora')
+    last_name = forms.CharField(label='Naziwsko inwestora')
+    street_name = forms.CharField(label='Ulica i numer')
+    city_name = forms.CharField(label='Miasto')
+    zip_code = forms.CharField(label='Kod pocztowy')
+    type_of_investment = forms.ChoiceField(choices=TYPES_OF_INVESTMENT, label='Typ inwestycji')

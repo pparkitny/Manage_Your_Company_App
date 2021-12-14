@@ -1,12 +1,12 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import View
-from .forms import LoginForm, RegisterForm, EmployeeAddForm, SquadAddForm
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import Employee, SquadInvestment, POSITION, Squad
+from .models import Employee, SquadInvestment, POSITION, Squad, Investment
+from .forms import LoginForm, RegisterForm, EmployeeAddForm, SquadAddForm, InvestmentAddForm
 
 
 class MainSite(View):
@@ -142,10 +142,33 @@ class AddInvestment(LoginRequiredMixin, View):
     login_url = '/login/'
 
     def get(self, request):
-        return render(request, 'add_investment.html')
+        form = InvestmentAddForm()
+        return render(request, 'add_investment.html', {'form': form})
 
     def post(self, request):
-        return render(request, 'add_investment.html')
+        form = InvestmentAddForm(request.POST)
+        if form.is_valid():
+            first_name = form.cleaned_data['first_name']
+            last_name = form.cleaned_data['last_name']
+            street_name = form.cleaned_data['street_name']
+            city_name = form.cleaned_data['city_name']
+            zip_code = form.cleaned_data['zip_code']
+            type_of_investment = form.cleaned_data['type_of_investment']
+            # Create new investment
+            investment = Investment.objects.create(
+                first_name=first_name,
+                last_name=last_name,
+                street_name=street_name,
+                city_name=city_name,
+                zip_code=zip_code,
+                type_of_investment=type_of_investment
+            )
+            SquadInvestment.objects.create(
+                investment=investment
+            )
+            return redirect(f'/investments/')
+        else:
+            return render(request, 'add_investment.html', {'form': form})
 
 
 class Employees(LoginRequiredMixin, View):
@@ -186,4 +209,3 @@ class Squads(LoginRequiredMixin, View):
 
     def post(self, request):
         return render(request, 'squads.html')
-

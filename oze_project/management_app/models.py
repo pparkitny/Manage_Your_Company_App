@@ -55,7 +55,7 @@ class Investment(models.Model):
 
 class SquadInvestment(models.Model):
     investment = models.ForeignKey(Investment, on_delete=models.CASCADE)
-    squad = models.ForeignKey(Squad, on_delete=models.CASCADE)
+    squad = models.ForeignKey(Squad, on_delete=models.CASCADE, null=True)
     employee = models.ForeignKey(Employee, on_delete=models.CASCADE, null=True)
 
     @property

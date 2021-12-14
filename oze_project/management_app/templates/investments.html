@@ -10,10 +10,12 @@
         <thead>
             <tr class="d-flex">
                 <th class="col-2">ID</th>
+                <th class="col-2">Inwestor</th>
                 <th class="col-2">Ulica</th>
                 <th class="col-2">Miasto</th>
                 <th class="col-2">Kod pocztowy</th>
-                <th class="col-8">Brygada</th>
+                <th class="col-2">Brygada</th>
+                <th class="col-2">Edytuj</th>
                 <th class="col-2">Szczegóły</th>
             </tr>
         </thead>
@@ -21,10 +23,24 @@
         <tbody>
             <tr class="d-flex">
                 <td class="col-2">{{ investment.id }}</td>
+                <td class="col-2">{{ investment.investment.first_name }} {{ investment.investment.last_name }}</td>
                 <td class="col-2">{{ investment.investment.street_name}}</td>
                 <td class="col-2">{{ investment.investment.city_name}}</td>
                 <td class="col-2">{{ investment.investment.zip_code}}</td>
-                <td class="col-8">{{ investment.squad }}</td>
+                <td class="col-2">
+                {% if investment.squad == None %}
+                    -
+                {% elif investment.squad != None %}
+                    {{ investment.squad }}
+                {% endif %}
+                </td>
+                <td class="col-2">
+                    <a href ='/investment/modify/{{ investment.investment.id }}/' >
+                        <button type="button" class="btn btn-primary rounded-0">
+                            Edytuj
+                        </button>
+                    </a>
+                </td>
                 <td class="col-2">
                     <a href ='/investment/{{ investment.id }}/' >
                         <button type="button" class="btn btn-primary rounded-0">
