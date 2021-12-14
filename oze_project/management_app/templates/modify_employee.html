@@ -6,9 +6,13 @@
     </p>
 </div>
 <div class="center">
+    <form method="post">
+        {% csrf_token %}
+        {{ error_text }}
     <table class="table">
         <thead>
             <tr class="d-flex">
+                <th class="col-2">ID</th>
                 <th class="col-2">Imię</th>
                 <th class="col-2">Nazwisko</th>
                 <th class="col-2">Stanowisko</th>
@@ -18,6 +22,7 @@
         </thead>
         <tbody>
             <tr class="d-flex">
+                <td class="col-2">{{ employee.id }}</td>
                 <td class="col-2">
                     <input type="text" name="first_name" value="{{ employee.first_name }}">
                 </td>
@@ -48,7 +53,7 @@
                 </td>
                 <td class="col-2">
                     <a href ='/employees/' >
-                        <button type="button" class="btn btn-primary rounded-0">
+                        <button type="submit" class="btn btn-primary rounded-0">
                             Edytuj
                         </button>
                     </a>
@@ -56,6 +61,7 @@
             </tr>
         </tbody>
     </table>
+    </form>
 </div>
 
 

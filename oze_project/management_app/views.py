@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import View
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -240,18 +240,26 @@ class ModifyEmployeeView(LoginRequiredMixin, View):
                                                         'squads': squads})
 
     def post(self, request, id):
-        first_name = request.POST.get['first_name']
-        last_name = request.POST.get['last_name']
-        position = request.POST.get['position']
-        squad = request.POST.get['squad']
-        # Create new employee
-        try:
-            Employee.objects.filter(id=id).update(
-                first_name=first_name,
-                last_name=last_name,
-                position=position,
-                squad=squad
-            )
-            return redirect(f'/employees/')
-        except Exception:
-            return render(request, 'modify_employee.html', {'error_text': "Wypełnij poprawnie wszystkie pola"})
+
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
+        position = request.POST.get('position')
+        squad_name = request.POST.get('squad')
+        squad = Squad.objects.get(name=squad_name)
+        # try:
+            # Update employee
+        Employee.objects.filter(id=id).update(
+            first_name=first_name,
+            last_name=last_name,
+            position=position,
+            squad=squad
+        )
+        # obj = Employee.objects.get(id=id)
+        # obj.first_name = first_name
+        # obj.last_name = last_name
+        # obj.position = position
+        # obj.squad = squad
+        # obj.save()
+        return redirect(f'/employees/')
+        # except Exception:
+        #     return render(request, 'modify_employee.html', {'error_text': "Wypełnij poprawnie wszystkie pola"})
