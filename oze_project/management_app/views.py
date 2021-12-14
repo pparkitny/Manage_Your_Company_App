@@ -224,7 +224,7 @@ class CalendarView(LoginRequiredMixin, View):
 
 
 class ModifyEmployeeView(LoginRequiredMixin, View):
-    """ In this class you can add new employee """
+    """ In this class you can add modify each employee """
 
     login_url = '/login/'
 
