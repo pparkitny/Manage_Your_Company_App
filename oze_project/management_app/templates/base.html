@@ -57,10 +57,13 @@
     <a href="/logout/">
         <div class="dropbtn" style="color: black">Wyloguj</div>
     </a>
+
 </div>
 {% endif %}
 {% block content %}
 {% endblock %}
-<a href="#" onclick="history.go(-1)" id="back-link">Wróć</a>
+{% if user.is_authenticated %}
+<div id="back-link">Zalogowany: {{ user }}</div>
+{% endif %}
 </body>
 </html>

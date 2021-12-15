@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="title">
+    <p>
+        Edycja brygadę
+    </p>
+</div>
+<div class="center">
+    <form method="post">
+        {% csrf_token %}
+        {{ error_text }}
+    <table class="table">
+        <thead>
+            <tr class="d-flex">
+                <th class="col-2">ID</th>
+                <th class="col-2">Brygada</th>
+                <th class="col-2">Edytuj</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="d-flex">
+                <td class="col-2">{{ squad.id }}</td>
+                <td class="col-2">
+                    <input type="text" name="name" value="{{ squad.name }}">
+                </td>
+                <td class="col-2">
+                    <a href ='/squads/' >
+                        <button type="submit" class="btn btn-primary rounded-0">
+                            Edytuj
+                        </button>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </form>
+</div>
+
+
+{% endblock %}

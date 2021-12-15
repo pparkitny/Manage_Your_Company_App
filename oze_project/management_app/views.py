@@ -240,26 +240,41 @@ class ModifyEmployeeView(LoginRequiredMixin, View):
                                                         'squads': squads})
 
     def post(self, request, id):
-
         first_name = request.POST.get('first_name')
         last_name = request.POST.get('last_name')
         position = request.POST.get('position')
         squad_name = request.POST.get('squad')
         squad = Squad.objects.get(name=squad_name)
-        # try:
-            # Update employee
+        new = ""
+        for pozycja in POSITION:
+            if position == pozycja[1]:
+                new = str(pozycja[0])
+        # Update employee
         Employee.objects.filter(id=id).update(
             first_name=first_name,
             last_name=last_name,
-            position=position,
+            position=new,
             squad=squad
         )
-        # obj = Employee.objects.get(id=id)
-        # obj.first_name = first_name
-        # obj.last_name = last_name
-        # obj.position = position
-        # obj.squad = squad
-        # obj.save()
         return redirect(f'/employees/')
-        # except Exception:
-        #     return render(request, 'modify_employee.html', {'error_text': "Wypełnij poprawnie wszystkie pola"})
+
+
+class ModifySquadView(LoginRequiredMixin, View):
+    """ In this class you can add modify each employee """
+
+    login_url = '/login/'
+
+    def get(self, request, id):
+        try:
+            squad = Squad.objects.get(id=id)
+        except Exception:
+            raise Http404("Nie znaleziono brygady")
+        return render(request, 'modify_squad.html', {'squad': squad})
+
+    def post(self, request, id):
+        name = request.POST.get('name')
+        # Update squad
+        Squad.objects.filter(id=id).update(
+            name=name
+        )
+        return redirect(f'/squads/')

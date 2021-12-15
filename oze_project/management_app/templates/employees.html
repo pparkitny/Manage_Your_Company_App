@@ -14,7 +14,7 @@
                 <th class="col-2">Stanowisko</th>
                 <th class="col-2">Brygada</th>
                 <th class="col-2">Edytuj</th>
-                <th class="col-2">Szczegóły</th>
+<!--                <th class="col-2">Szczegóły</th>-->
             </tr>
         </thead>
     {% for worker in workers %}
@@ -47,13 +47,13 @@
                         </button>
                     </a>
                 </td>
-                <td class="col-2">
-                    <a href ='/employee/{{ worker.id }}/' >
-                        <button type="button" class="btn btn-primary rounded-0">
-                            Szczegóły
-                        </button>
-                    </a>
-                </td>
+<!--                <td class="col-2">-->
+<!--                    <a href ='/employee/{{ worker.id }}/' >-->
+<!--                        <button type="button" class="btn btn-primary rounded-0">-->
+<!--                            Szczegóły-->
+<!--                        </button>-->
+<!--                    </a>-->
+<!--                </td>-->
             </tr>
         </tbody>
     {% endfor %}

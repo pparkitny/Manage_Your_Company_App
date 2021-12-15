@@ -11,7 +11,7 @@
             <tr class="d-flex">
                 <th class="col-2">Nazwa</th>
                 <th class="col-2">Edytuj</th>
-                <th class="col-2">Szczegóły</th>
+<!--                <th class="col-2">Szczegóły</th>-->
             </tr>
         </thead>
     {% for squad in squads %}
@@ -26,13 +26,13 @@
                         </button>
                     </a>
                 </td>
-                <td class="col-2">
-                    <a href ='/squad/{{ squad.id }}/' >
-                        <button type="button" class="btn btn-primary rounded-0">
-                            Szczegóły
-                        </button>
-                    </a>
-                </td>
+<!--                <td class="col-2">-->
+<!--                    <a href ='/squad/{{ squad.id }}/' >-->
+<!--                        <button type="button" class="btn btn-primary rounded-0">-->
+<!--                            Szczegóły-->
+<!--                        </button>-->
+<!--                    </a>-->
+<!--                </td>-->
             </tr>
         </tbody>
         {% endif %}
