@@ -7,6 +7,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Employee, SquadInvestment, POSITION, Squad, Investment, TYPES_OF_INVESTMENT, DayName
 from .forms import LoginForm, RegisterForm, EmployeeAddForm, SquadAddForm, InvestmentAddForm
+from datetime import datetime
 
 
 class MainSiteView(View):
@@ -220,7 +221,8 @@ class CalendarView(LoginRequiredMixin, View):
 
     def get(self, request):
         day_name = DayName.objects.all().order_by('id')
-        return render(request, 'calendar.html', {'day_name': day_name})
+        currentMonth = datetime.now().strftime('%B')
+        return render(request, 'calendar.html', {'day_name': day_name, 'currentMonth': currentMonth})
 
     def post(self, request):
         return render(request, 'calendar.html')
