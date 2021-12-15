@@ -1,15 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="title">
-    <p>
+    <h1>
         Utwórz nowego pracownika
-    </p>
+    </h1>
 </div>
-<div class="center">
-        <form method="post" class="center">
+<div class="main-app">
+        <form method="post"  class="center">
             {% csrf_token %}
             {{ form.as_p }}
-            <input type="submit" value="Utwórz">
+            <input type="submit" class="button" value="Utwórz">
         </form>
     <h1>{{ message }}</h1>
 </div>
