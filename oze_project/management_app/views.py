@@ -19,9 +19,9 @@ class MainSiteView(View):
 
     def post(self, request):
         if request.method == "POST":
-            if 'login' in request.POST: # login button click
+            if 'login' in request.POST:  # login button click
                 return redirect("/login/")
-            elif 'register' in request.POST: # register button click
+            elif 'register' in request.POST:  # register button click
                 return redirect("/register/")
 
 
@@ -36,7 +36,7 @@ class LoginView(View):
     def post(self, request):
         form = LoginForm(request.POST)
         form.is_valid()
-        user = authenticate(username=form.cleaned_data['login'],
+        user = authenticate(username=form.cleaned_data['username'],
                             password=form.cleaned_data['password'])  # from django.contrib.auth import authenticate
 
         if user:  # user is in database
@@ -75,7 +75,7 @@ class RegisterView(View):
             return render(request, 'add_user.html', {'form': form})
 
 
-class DashboardView(LoginRequiredMixin, View): # from django.contrib.auth.mixins import LoginRequiredMixin
+class DashboardView(LoginRequiredMixin, View):  # from django.contrib.auth.mixins import LoginRequiredMixin
     """ This class is dashboard for logged users """
     """ You can manage whole app from this place """
 
@@ -308,7 +308,7 @@ class ModifyInvestmentView(LoginRequiredMixin, View):
         for investment in TYPES_OF_INVESTMENT:
             if type_of_investment == investment[1]:
                 new = str(investment[0])
-        # Update employee
+        #  Update employee
         Investment.objects.filter(id=id).update(
             first_name=first_name,
             last_name=last_name,

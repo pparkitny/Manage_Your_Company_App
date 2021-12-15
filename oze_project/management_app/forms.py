@@ -5,7 +5,7 @@ from .models import Squad, POSITION, Investment, TYPES_OF_INVESTMENT, SquadInves
 
 
 class LoginForm(forms.Form):
-    login = forms.CharField(label='Login')
+    username = forms.CharField(label='Login')
     password = forms.CharField(label='Hasło', widget=forms.PasswordInput())
 
 
