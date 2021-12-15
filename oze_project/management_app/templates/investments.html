@@ -14,7 +14,7 @@
                 <th class="col-2">Ulica</th>
                 <th class="col-2">Miasto</th>
                 <th class="col-2">Kod pocztowy</th>
-                <th class="col-2">Brygada</th>
+                <th class="col-2">Typ inwestycji</th>
                 <th class="col-2">Edytuj</th>
 <!--                <th class="col-2">Szczegóły</th>-->
             </tr>
@@ -28,11 +28,15 @@
                 <td class="col-2">{{ investment.investment.city_name}}</td>
                 <td class="col-2">{{ investment.investment.zip_code}}</td>
                 <td class="col-2">
-                {% if investment.squad == None %}
-                    -
-                {% elif investment.squad != None %}
-                    {{ investment.squad }}
-                {% endif %}
+                    {% if investment.investment.type_of_investment == 1 %}
+                        {{ types_of_investment.0.1 }}
+                    {% elif investment.investment.type_of_investment == 2 %}
+                        {{ types_of_investment.1.1 }}
+                    {% elif investment.investment.type_of_investment == 3 %}
+                        {{ types_of_investment.2.1 }}
+                    {% elif investment.investment.type_of_investment == 4 %}
+                        {{ types_of_investment.3.1 }}
+                    {% endif %}
                 </td>
                 <td class="col-2">
                     <a href ='/investment/modify/{{ investment.investment.id }}/' >

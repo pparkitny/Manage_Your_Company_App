@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="title">
+    <p>
+        Edycja inwestycji
+    </p>
+</div>
+<div>
+    <form method="post">
+        {% csrf_token %}
+        {{ error_text }}
+    <table class="table">
+        <thead>
+            <tr class="d-flex">
+                <th class="col-2">ID</th>
+                <th class="col-2">Imię</th>
+                <th class="col-2">Nazwisko</th>
+                <th class="col-2">Ulica</th>
+                <th class="col-2">Miasto</th>
+                <th class="col-2">Kod pocztowy</th>
+                <th class="col-2">Typ inwestycji</th>
+                <th class="col-2">Edytuj</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="d-flex">
+                <td class="col-2">{{ investment.id }}</td>
+                <td class="col-2">
+                    <input type="text" name="first_name" value="{{ investment.first_name }}">
+                </td>
+                <td class="col-2">
+                    <input type="text" name="last_name" value="{{ investment.last_name }}">
+                </td>
+                <td class="col-2">
+                    <input type="text" name="street_name" value="{{ investment.street_name }}">
+                </td>
+                <td class="col-2">
+                    <input type="text" name="city_name" value="{{ investment.city_name }}">
+                </td>
+                <td class="col-2">
+                    <input type="text" name="zip_code" value="{{ investment.zip_code }}">
+                </td>
+                <td class="col-2">
+                    <select class="form-control" name="type_of_investment">
+                        {% for investment in type_of_investments %}
+                        {% if investment.0 == investment.type_of_investment %}
+                        <option selected>{{ investment.1 }}</option>
+                        {% elif investment.0 != investment.type_of_investment %}
+                        <option>{{ investment.1 }}</option>
+                        {% endif %}
+                        {% endfor %}
+                    </select>
+                </td>
+                <td class="col-2">
+                    <a href ='/investments/' >
+                        <button type="submit" class="btn btn-primary rounded-0">
+                            Edytuj
+                        </button>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </form>
+</div>
+{% endblock %}

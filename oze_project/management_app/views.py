@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import Employee, SquadInvestment, POSITION, Squad, Investment
+from .models import Employee, SquadInvestment, POSITION, Squad, Investment, TYPES_OF_INVESTMENT, DayName
 from .forms import LoginForm, RegisterForm, EmployeeAddForm, SquadAddForm, InvestmentAddForm
 
 
@@ -177,7 +177,7 @@ class EmployeesView(LoginRequiredMixin, View):
     login_url = '/login/'
 
     def get(self, request):
-        workers = Employee.objects.all()
+        workers = Employee.objects.all().order_by('id')
         positions = POSITION
         return render(request, 'employees.html', {'workers': workers, 'positions': positions})
 
@@ -191,8 +191,10 @@ class InvestmentsView(LoginRequiredMixin, View):
     login_url = '/login/'
 
     def get(self, request):
-        investments = SquadInvestment.objects.all()
-        return render(request, 'investments.html', {'investments': investments})
+        investments = SquadInvestment.objects.all().order_by('id')
+        types_of_investment = TYPES_OF_INVESTMENT
+        return render(request, 'investments.html', {'investments': investments,
+                                                    'types_of_investment': types_of_investment})
 
     def post(self, request):
         return render(request, 'investments.html')
@@ -204,7 +206,7 @@ class SquadsView(LoginRequiredMixin, View):
     login_url = '/login/'
 
     def get(self, request):
-        squads = Squad.objects.all()
+        squads = Squad.objects.all().order_by('id')
         return render(request, 'squads.html', {'squads': squads})
 
     def post(self, request):
@@ -217,7 +219,8 @@ class CalendarView(LoginRequiredMixin, View):
     login_url = '/login/'
 
     def get(self, request):
-        return render(request, 'calendar.html')
+        day_name = DayName.objects.all().order_by('id')
+        return render(request, 'calendar.html', {'day_name': day_name})
 
     def post(self, request):
         return render(request, 'calendar.html')
@@ -260,7 +263,7 @@ class ModifyEmployeeView(LoginRequiredMixin, View):
 
 
 class ModifySquadView(LoginRequiredMixin, View):
-    """ In this class you can add modify each employee """
+    """ In this class you can add modify each squad """
 
     login_url = '/login/'
 
@@ -278,3 +281,40 @@ class ModifySquadView(LoginRequiredMixin, View):
             name=name
         )
         return redirect(f'/squads/')
+
+
+class ModifyInvestmentView(LoginRequiredMixin, View):
+    """ In this class you can add modify each investment """
+
+    login_url = '/login/'
+
+    def get(self, request, id):
+        type_of_investments = TYPES_OF_INVESTMENT
+        try:
+            investment = Investment.objects.get(id=id)
+        except Exception:
+            raise Http404("Nie znaleziono inwestycji")
+        return render(request, 'modify_investment.html', {'investment': investment,
+                                                          'type_of_investments': type_of_investments})
+
+    def post(self, request, id):
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
+        street_name = request.POST.get('street_name')
+        city_name = request.POST.get('city_name')
+        zip_code = request.POST.get('zip_code')
+        type_of_investment = request.POST.get('type_of_investment')
+        new = ""
+        for investment in TYPES_OF_INVESTMENT:
+            if type_of_investment == investment[1]:
+                new = str(investment[0])
+        # Update employee
+        Investment.objects.filter(id=id).update(
+            first_name=first_name,
+            last_name=last_name,
+            street_name=street_name,
+            city_name=city_name,
+            zip_code=zip_code,
+            type_of_investment=new
+        )
+        return redirect(f'/investments/')

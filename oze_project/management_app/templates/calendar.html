@@ -4,5 +4,26 @@
     <p>
         Kalendarz
     </p>
+    <h6>"in progress..."</h6>
+</div>
+<div class="center">
+    <table class="table">
+        <thead>
+            <tr class="d-flex">
+                {% for day in day_name %}
+                <th class="col-2">{{ day }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+        {% for day in day_name %}
+            <tr class="d-flex">
+                {% for day in day_name %}
+                <td class="col-2"> </td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 </div>
 {% endblock %}
