@@ -82,7 +82,7 @@ WSGI_APPLICATION = 'oze_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'oze_db_v1',
+        'NAME': 'oze_db_v3',
         'HOST': 'localhost',
         'PASSWORD': 'coderslab',
         'USER': 'postgres',

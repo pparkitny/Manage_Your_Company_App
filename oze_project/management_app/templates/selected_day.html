@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="title">
+    <p>
+        Wybrany dzień
+    </p>
+</div>
+<div class="center">
+    <form method="post">
+        {% csrf_token %}
+        {{ error_text }}
+        <h2>Dzień: {{ selectedDay.day_name }} | Miesiąc: {{ selectedDay.month_name }} | Rok: {{ selectedDay.year_name }}</h2>
+
+
+            <table class="table">
+        <thead>
+            <tr class="d-flex">
+                <th class="col-2">Imię</th>
+                <th class="col-2">Nazwisko</th>
+                <th class="col-2">Ulica</th>
+                <th class="col-2">Miasto</th>
+                <th class="col-2">Kod pocztowy</th>
+                <th class="col-2">Typ inwestycji</th>
+                <th class="col-2">Brygada</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for investment in investments %}
+            <tr class="d-flex">
+                <td class="col-2">
+                    {{ investment.first_name }}
+                </td>
+                <td class="col-2">
+                    {{ investment.last_name }}
+                </td>
+                <td class="col-2">
+                    {{ investment.street_name }}
+                </td>
+                <td class="col-2">
+                    {{ investment.city_name }}
+                </td>
+                <td class="col-2">
+                    {{ investment.zip_code }}
+                </td>
+                <td class="col-2">
+                    {{ investment.type_of_investment }}
+                </td>
+                <td class="col-2">
+                    {{ investment.squad }}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </form>
+</div>
+{% endblock %}

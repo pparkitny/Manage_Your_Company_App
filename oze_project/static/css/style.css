@@ -157,6 +157,9 @@ a:link {
 table {
     width: 100%;
     border: 1px solid black;
+    padding-bottom: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 th {
@@ -167,4 +170,22 @@ th {
 td {
     text-align: center;
     height: 40px;
+}
+
+.day {
+    background-color: white; /* Green */
+    border: none;
+    color: black;
+    padding: 30px 60px;
+    text-align: center;
+    display: inline-block;
+    font-size: 14px;
+    transition-duration: 0.1s;
+    cursor: pointer;
+}
+
+.day:hover {
+    background-color: white; /* Green */
+    color: black;
+    box-shadow: 0 0 16px 0 rgba(0,0,0,0.25)
 }

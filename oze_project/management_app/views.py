@@ -5,7 +5,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import Employee, SquadInvestment, POSITION, Squad, Investment, TYPES_OF_INVESTMENT, DayName
+from .models import Employee, SquadInvestment, POSITION, Squad, Investment, TYPES_OF_INVESTMENT,\
+    DayName, InvestmentEachDate, EachDate
 from .forms import LoginForm, RegisterForm, EmployeeAddForm, SquadAddForm, InvestmentAddForm
 from datetime import datetime
 
@@ -222,10 +223,29 @@ class CalendarView(LoginRequiredMixin, View):
     def get(self, request):
         day_name = DayName.objects.all().order_by('id')
         currentMonth = datetime.now().strftime('%B')
-        return render(request, 'calendar.html', {'day_name': day_name, 'currentMonth': currentMonth})
+        all_dates = EachDate.objects.all().filter(month_name=12).filter(year_name=2021).order_by('id')
+        return render(request, 'calendar.html', {'day_name': day_name,
+                                                 'currentMonth': currentMonth,
+                                                 'all_dates': all_dates})
 
     def post(self, request):
         return render(request, 'calendar.html')
+
+
+class SelectedDayFromCalendarView(LoginRequiredMixin, View):
+    """ In this class you can see selected day from the calendar """
+
+    login_url = '/login/'
+
+    def get(self, request, day_name, month_name, year_name):
+        try:
+            selectedDay = EachDate.objects.get(day_name=day_name, month_name=month_name, year_name=year_name)
+        except Exception:
+            raise Http404("Nie znaleziono dnia")
+        return render(request, 'selected_day.html', {'selectedDay': selectedDay})
+
+    def post(self, request, id):
+        return redirect(f'/calendar/')
 
 
 class ModifyEmployeeView(LoginRequiredMixin, View):

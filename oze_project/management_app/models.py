@@ -71,3 +71,24 @@ class DayName(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class EachDate(models.Model):
+    day_name = models.IntegerField()
+    month_name = models.IntegerField()
+    year_name = models.IntegerField()
+    investment = models.ManyToManyField(Investment, through='InvestmentEachDate')
+
+    @property
+    def name(self):
+        return "{}.{}.{}".format(self.day_name, self.month_name, self.year_name)
+
+    def __str__(self):
+        return self.name
+
+
+class InvestmentEachDate(models.Model):
+    investment = models.ForeignKey(Investment, on_delete=models.CASCADE)
+    date = models.ForeignKey(EachDate, on_delete=models.CASCADE)
+
+
