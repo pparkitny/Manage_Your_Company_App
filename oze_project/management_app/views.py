@@ -45,7 +45,7 @@ class LoginView(View):
             login(request, user)  # from django.contrib.auth import login
             return redirect('/dashboard/')
         else:  # user is None
-            message = 'Błędny login lub hasło'
+            message = 'Wrong login or password'
             return render(request, 'login.html', {'form': form, 'message': message})
 
 
@@ -241,7 +241,7 @@ class SelectedDayFromCalendarView(LoginRequiredMixin, View):
         try:
             selectedDay = EachDate.objects.get(day_name=day_name, month_name=month_name, year_name=year_name)
         except Exception:
-            raise Http404("Nie znaleziono dnia")
+            raise Http404("Day not found")
         return render(request, 'selected_day.html', {'selectedDay': selectedDay})
 
     def post(self, request, id):
@@ -259,7 +259,7 @@ class ModifyEmployeeView(LoginRequiredMixin, View):
         try:
             employee = Employee.objects.get(id=id)
         except Exception:
-            raise Http404("Nie znaleziono pracownika")
+            raise Http404("Employee not found")
         return render(request, 'modify_employee.html', {'employee': employee,
                                                         'positions': positions,
                                                         'squads': squads})
@@ -271,9 +271,9 @@ class ModifyEmployeeView(LoginRequiredMixin, View):
         squad_name = request.POST.get('squad')
         squad = Squad.objects.get(name=squad_name)
         new = ""
-        for pozycja in POSITION:
-            if position == pozycja[1]:
-                new = str(pozycja[0])
+        for pos in POSITION:
+            if position == pos[1]:
+                new = str(pos[0])
         # Update employee
         Employee.objects.filter(id=id).update(
             first_name=first_name,
@@ -293,7 +293,7 @@ class ModifySquadView(LoginRequiredMixin, View):
         try:
             squad = Squad.objects.get(id=id)
         except Exception:
-            raise Http404("Nie znaleziono brygady")
+            raise Http404("Squad not found")
         return render(request, 'modify_squad.html', {'squad': squad})
 
     def post(self, request, id):
@@ -315,7 +315,7 @@ class ModifyInvestmentView(LoginRequiredMixin, View):
         try:
             investment = Investment.objects.get(id=id)
         except Exception:
-            raise Http404("Nie znaleziono inwestycji")
+            raise Http404("Investment not found")
         return render(request, 'modify_investment.html', {'investment': investment,
                                                           'type_of_investments': type_of_investments})
 

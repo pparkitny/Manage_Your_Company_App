@@ -9,19 +9,19 @@
     <form method="post">
         {% csrf_token %}
         {{ error_text }}
-        <h2>Dzień: {{ selectedDay.day_name }} | Miesiąc: {{ selectedDay.month_name }} | Rok: {{ selectedDay.year_name }}</h2>
+        <h2>Day: {{ selectedDay.day_name }} | Month: {{ selectedDay.month_name }} | Year: {{ selectedDay.year_name }}</h2>
 
 
             <table class="table">
         <thead>
             <tr class="d-flex">
-                <th class="col-2">Imię</th>
-                <th class="col-2">Nazwisko</th>
-                <th class="col-2">Ulica</th>
-                <th class="col-2">Miasto</th>
-                <th class="col-2">Kod pocztowy</th>
-                <th class="col-2">Typ inwestycji</th>
-                <th class="col-2">Brygada</th>
+                <th class="col-2">First name</th>
+                <th class="col-2">Last name</th>
+                <th class="col-2">Street</th>
+                <th class="col-2">City</th>
+                <th class="col-2">Zip-code</th>
+                <th class="col-2">Type of investment</th>
+                <th class="col-2">Squad</th>
             </tr>
         </thead>
         <tbody>

@@ -32,30 +32,30 @@
 {% if user.is_authenticated %}
 <div class="navi">
     <a href="/dashboard/">
-    <div class="dropbtn">Pulpit</div>
+    <div class="dropbtn">Dashboard</div>
     </a>
     <div class="dropdown">
-        <button onclick="myFunction()" class="dropbtn">Utwórz</button>
+        <button onclick="myFunction()" class="dropbtn">Create</button>
           <div id="myDropdown" class="dropdown-content">
-            <a href="/add-employee/">Nowy pracownik</a>
-            <a href="/add-squad/">Nowa brygada</a>
-            <a href="/add-investment/">Nowa inwestycja</a>
+            <a href="/add-employee/">New employee</a>
+            <a href="/add-squad/">New squad</a>
+            <a href="/add-investment/">New investment</a>
           </div>
     </div>
     <a href="/calendar/">
-        <div class="dropbtn">Kalendarz</div>
+        <div class="dropbtn">Calendar</div>
     </a>
     <a href="/investments/">
-        <div class="dropbtn">Inwestycje</div>
+        <div class="dropbtn">Investments</div>
     </a>
     <a href="/employees/">
-        <div class="dropbtn">Pracownicy</div>
+        <div class="dropbtn">Employees</div>
     </a>
     <a href="/squads/">
-        <div class="dropbtn">Brygady</div>
+        <div class="dropbtn">Squads</div>
     </a>
     <a href="/logout/">
-        <div class="dropbtn" id="logout-position">Wyloguj</div>
+        <div class="dropbtn" id="logout-position">Logout</div>
     </a>
 
 </div>
@@ -63,7 +63,7 @@
 {% block content %}
 {% endblock %}
 {% if user.is_authenticated %}
-<div id="back-link">Zalogowany: {{ user }}</div>
+<div id="back-link">Logged: {{ user }}</div>
 {% endif %}
 </body>
 </html>

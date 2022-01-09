@@ -2,7 +2,7 @@
 {% block content %}
 <div class="title">
     <p>
-        Lista pracowników
+        List of employees
     </p>
 </div>
 <div class="center">
@@ -10,10 +10,10 @@
         <thead>
             <tr class="d-flex">
                 <th class="col-2">ID</th>
-                <th class="col-2">Pracownik</th>
-                <th class="col-2">Stanowisko</th>
-                <th class="col-2">Brygada</th>
-                <th class="col-2">Edytuj</th>
+                <th class="col-2">Employee</th>
+                <th class="col-2">Position</th>
+                <th class="col-2">Squad</th>
+                <th class="col-2">Edit</th>
 <!--                <th class="col-2">Szczegóły</th>-->
             </tr>
         </thead>
@@ -43,7 +43,7 @@
                 <td class="col-2">
                     <a href ='/employee/modify/{{ worker.id }}/' >
                         <button type="button" class="button-list">
-                            Edytuj
+                            Edit
                         </button>
                     </a>
                 </td>

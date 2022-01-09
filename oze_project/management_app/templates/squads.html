@@ -2,15 +2,15 @@
 {% block content %}
 <div class="title">
     <p>
-        Lista brygad
+        List of squads
     </p>
 </div>
 <div class="center">
     <table class="table">
         <thead>
             <tr class="d-flex">
-                <th class="col-2">Nazwa</th>
-                <th class="col-2">Edytuj</th>
+                <th class="col-2">Name</th>
+                <th class="col-2">Edit</th>
 <!--                <th class="col-2">Szczegóły</th>-->
             </tr>
         </thead>
@@ -22,7 +22,7 @@
                 <td class="col-2">
                     <a href ='/squad/modify/{{ squad.id }}/' >
                         <button type="button" class="button-list">
-                            Edytuj
+                            Edit
                         </button>
                     </a>
                 </td>
