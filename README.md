@@ -148,7 +148,7 @@ Don't forget to give the project a star! Thanks again!
 
 Patryk Parkitny - [@LinkedIn](https://linkedin.com/in/patryk-parkitny) - patryk.parkitnyy@gmail.com
 
-Project Link: [https://github.com/pparkitny/Final_Project](https://github.com/pparkitny/Final_Project)
+Project Link: [https://github.com/pparkitny/Manage_Your_Company_App](https://github.com/pparkitny/Manage_Your_Company_App)
 
 
 <!-- ACKNOWLEDGMENTS -->
