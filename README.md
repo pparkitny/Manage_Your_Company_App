@@ -1,23 +1,8 @@
-<!-- PROJECT LOGO -->
 <br />
-<div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
-
-  <h3 align="center">Best-README-Template</h3>
+  <h3 align="center">"Manage Your Company App"</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    An awesome simple app to manage Your company!
   </p>
 </div>
 
@@ -43,7 +28,6 @@
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
@@ -54,37 +38,27 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![welcome-site.png](https://i.postimg.cc/qqs5qnGF/welcome-site.png)](https://postimg.cc/30wBbkVj)
 
-There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+This is my first "big" and independent project since I decided to start programming in Python/Django. "Manage Your Company App" was created to make it easier to manage company (focused on companies in the renewable energy industry). I know from experience that the management of work, installation squads and employees in this industry is difficult. This application will help with this problem.
 
 Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should implement DRY principles to the rest of your life :smile:
+* The management of the company's resources is usually done by phone and excel, and as a result, there is a lot of confusion and misunderstandings.
+* There is a lack of one simple system thanks to which it would be easier to manage company
+* One of the elements that cause the planned work to fail is bad weather. This application will help you predict what works should be planned.
 
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
 
-Use the `BLANK_README.md` to get started.
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
+Of course, the project is not yet complete. I will add more news in my spare time so that the app actually becomes helpful!
 
 
 ### Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+These are the main technologies used to create this application.
 
-* [Next.js](https://nextjs.org/)
-* [React.js](https://reactjs.org/)
-* [Vue.js](https://vuejs.org/)
-* [Angular](https://angular.io/)
-* [Svelte](https://svelte.dev/)
-* [Laravel](https://laravel.com)
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
+* [Python 3.8](https://www.python.org/)
+* [Django 3.2.9](https://www.djangoproject.com/)
+* [Pytest-django](https://pytest-django.readthedocs.io/en/latest/)
+* [PostgresSQL](https://pypi.org/project/psycopg2-binary/)
 
 
 
@@ -169,25 +143,12 @@ Don't forget to give the project a star! Thanks again!
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
-
-<!-- LICENSE -->
-## License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+Patryk Parkitny - [@LinkedIn](https://linkedin.com/in/patryk-parkitny) - patryk.parkitnyy@gmail.com
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
+Project Link: [https://github.com/pparkitny/Final_Project](https://github.com/pparkitny/Final_Project)
 
 
 <!-- ACKNOWLEDGMENTS -->
