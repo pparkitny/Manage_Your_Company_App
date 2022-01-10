@@ -6,12 +6,12 @@ from .models import Squad, POSITION, Investment, TYPES_OF_INVESTMENT, SquadInves
 
 class LoginForm(forms.Form):
     username = forms.CharField(label='Login')
-    password = forms.CharField(label='Hasło', widget=forms.PasswordInput())
+    password = forms.CharField(label='Password', widget=forms.PasswordInput())
 
 
 def login_not_taken(login):
     if User.objects.filter(username=login):
-        raise ValidationError('Podany login jest zajęty')
+        raise ValidationError('This login is taken!')
 
 
 class RegisterForm(forms.Form):
