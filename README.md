@@ -27,9 +27,7 @@
     </li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
@@ -37,8 +35,6 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-
-[![welcome-site.png](https://i.postimg.cc/qqs5qnGF/welcome-site.png)](https://postimg.cc/30wBbkVj)
 
 This is my first "big" and independent project since I decided to start programming in Python/Django. "Manage Your Company App" was created to make it easier to manage company (focused on companies in the renewable energy industry). I know from experience that the management of work, installation squads and employees in this industry is difficult. This application will help with this problem.
 
@@ -65,82 +61,51 @@ These are the main technologies used to create this application.
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
-
-### Installation
-
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/your_username_/Project-Name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
+This application is not yet on any server because it is not done. If you want to try it on this version you can run it on your computer, taking project folders and files.
 
 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+If you have downloaded the project and managed to get it working properly, you can see how it all works.
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+After launching the app, we are on the home page where you can log in or create a new user.
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+[![welcome-site.png](https://i.postimg.cc/qqs5qnGF/welcome-site.png)](https://postimg.cc/30wBbkVj)
 
 
+[![login-site.png](https://i.postimg.cc/pd3ffyqB/login-site.png)](https://postimg.cc/GBJTr30B)
+
+Once logged in, we are taken to the application dashboard. Unlogged user has no access here.
+
+[![dashboard.png](https://i.postimg.cc/j5gr30nv/dashboard.png)](https://postimg.cc/Q9TPVzbW)
+
+As we can see in the screenshot above, we can do several things such as create new employees, squads or investments. 
+
+[![list-squads.png](https://i.postimg.cc/ZR3M3GFC/list-squads.png)](https://postimg.cc/5Y4gWkrV)
+
+We choose to see list of squads.
+
+[![edit-squad.png](https://i.postimg.cc/x8ntmc14/edit-squad.png)](https://postimg.cc/2b9QRjvQ)
+
+We can edit any squad.
+
+[![calendar.png](https://i.postimg.cc/QM7bnpBz/calendar.png)](https://postimg.cc/PLtYCvQb)
+
+We have also calendar (in progress)
+
+[![selected-day.png](https://i.postimg.cc/zD7kMDBq/selected-day.png)](https://postimg.cc/0r6mKsD4)
+
+We can select any day and see what investment is scheduled
 
 <!-- ROADMAP -->
 ## Roadmap
 
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
-
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- CONTRIBUTING -->
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-<p align="right">(<a href="#top">back to top</a>)</p>
+- [x] Add user register and login
+- [x] Add the ability to edit everything
+- [ ] Add calendar
+- [ ] Create better frontend
+- [ ] Place the project on the server
 
 
 <!-- CONTACT -->
@@ -149,38 +114,3 @@ Don't forget to give the project a star! Thanks again!
 Patryk Parkitny - [@LinkedIn](https://linkedin.com/in/patryk-parkitny) - patryk.parkitnyy@gmail.com
 
 Project Link: [https://github.com/pparkitny/Manage_Your_Company_App](https://github.com/pparkitny/Manage_Your_Company_App)
-
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
-
-* [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
-* [Malven's Grid Cheatsheet](https://grid.malven.co/)
-* [Img Shields](https://shields.io)
-* [GitHub Pages](https://pages.github.com)
-* [Font Awesome](https://fontawesome.com)
-* [React Icons](https://react-icons.github.io/react-icons/search)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
-[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
-[forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
-[stars-url]: https://github.com/othneildrew/Best-README-Template/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
-[issues-url]: https://github.com/othneildrew/Best-README-Template/issues
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
-[product-screenshot]: images/screenshot.png
