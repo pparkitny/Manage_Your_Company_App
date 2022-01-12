@@ -71,10 +71,9 @@ If you have downloaded the project and managed to get it working properly, you c
 
 After launching the app, we are on the home page where you can log in or create a new user.
 
-[![welcome-site.png](https://i.postimg.cc/qqs5qnGF/welcome-site.png)](https://postimg.cc/30wBbkVj)
+[![welcome-full.png](https://i.postimg.cc/HkD48rv4/welcome-full.png)](https://postimg.cc/bsg2Kwhs)
 
-
-[![login-site.png](https://i.postimg.cc/pd3ffyqB/login-site.png)](https://postimg.cc/GBJTr30B)
+[![login-full.png](https://i.postimg.cc/dVjHqRQT/login-full.png)](https://postimg.cc/4YnbP99J)
 
 Once logged in, we are taken to the application dashboard. Unlogged user has no access here.
 
