@@ -61,29 +61,28 @@ These are the main technologies used to create this application.
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This application is not yet on any server because it is not done. If you want to try it on this version you can run it on your computer, taking project folders and files.
+The application does not have a beautiful design, because I was focused on creating a well working backend. <br/>
+This application is not yet on any server because it is not done.
 
 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-If you have downloaded the project and managed to get it working properly, you can see how it all works.
-
-After launching the app, we are on the home page where you can log in or create a new user.
+After launching the app, we are on the home page where user can log in or create a new user.
 
 [![welcome-full.png](https://i.postimg.cc/HkD48rv4/welcome-full.png)](https://postimg.cc/bsg2Kwhs)
 
 [![login-full.png](https://i.postimg.cc/dVjHqRQT/login-full.png)](https://postimg.cc/4YnbP99J)
 
-Once logged in, we are taken to the application dashboard. Unlogged user has no access here.
+Once logged in, user is taken to the application dashboard. Unlogged user has no access here.
 
 [![dashboard.png](https://i.postimg.cc/j5gr30nv/dashboard.png)](https://postimg.cc/Q9TPVzbW)
 
-As we can see in the screenshot above, we can do several things such as create new employees, squads or investments. 
+As you can see in the screenshot above, user can do several things such as create new employees, squads or investments. 
 
 [![list-squads.png](https://i.postimg.cc/ZR3M3GFC/list-squads.png)](https://postimg.cc/5Y4gWkrV)
 
-We choose to see list of squads.
+Choose to see list of squads.
 
 [![edit-squad.png](https://i.postimg.cc/x8ntmc14/edit-squad.png)](https://postimg.cc/2b9QRjvQ)
 
@@ -91,11 +90,11 @@ We can edit any squad.
 
 [![calendar.png](https://i.postimg.cc/QM7bnpBz/calendar.png)](https://postimg.cc/PLtYCvQb)
 
-We have also calendar (in progress)
+App has also calendar (in progress)
 
 [![selected-day.png](https://i.postimg.cc/zD7kMDBq/selected-day.png)](https://postimg.cc/0r6mKsD4)
 
-We can select any day and see what investment is scheduled
+User can select any day and see what investment is scheduled
 
 <!-- ROADMAP -->
 ## Roadmap
